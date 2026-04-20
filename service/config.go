@@ -198,6 +198,14 @@ func (s *ConfigService) Save(obj string, act string, data json.RawMessage, initU
 			if !corePtr.IsRunning() {
 				s.StartCore()
 			}
+			// Trigger Git sync push after successful save
+			go func() {
+				var gitSyncService GitSyncService
+				config, err := gitSyncService.GetConfig()
+				if err == nil && config.Enable && config.AutoSync {
+					_ = gitSyncService.PushToGit()
+				}
+			}()
 		} else {
 			tx.Rollback()
 		}

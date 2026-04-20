@@ -44,7 +44,7 @@ func GetDb(exclude string) ([]byte, error) {
 	}
 	defer os.Remove(dbPath)
 
-	err = backupDb.AutoMigrate(
+		err = backupDb.AutoMigrate(
 		&model.Setting{},
 		&model.Tls{},
 		&model.Inbound{},
@@ -54,12 +54,13 @@ func GetDb(exclude string) ([]byte, error) {
 		&model.Stats{},
 		&model.Client{},
 		&model.Changes{},
+		&model.GitSync{},
 	)
 	if err != nil {
 		return nil, err
 	}
 
-	var settings []model.Setting
+		var settings []model.Setting
 	var tls []model.Tls
 	var inbound []model.Inbound
 	var outbound []model.Outbound
@@ -68,6 +69,7 @@ func GetDb(exclude string) ([]byte, error) {
 	var clients []model.Client
 	var stats []model.Stats
 	var changes []model.Changes
+	var gitSync []model.GitSync
 
 	// Perform scans and handle errors
 	if err := db.Model(&model.Setting{}).Scan(&settings).Error; err != nil {
@@ -130,7 +132,7 @@ func GetDb(exclude string) ([]byte, error) {
 			}
 		}
 	}
-	if !exclude_changes {
+		if !exclude_changes {
 		if err := db.Model(&model.Changes{}).Scan(&changes).Error; err != nil {
 			return nil, err
 		}
@@ -138,6 +140,15 @@ func GetDb(exclude string) ([]byte, error) {
 			if err := backupDb.Save(changes).Error; err != nil {
 				return nil, err
 			}
+		}
+	}
+
+	if err := db.Model(&model.GitSync{}).Scan(&gitSync).Error; err != nil {
+		return nil, err
+	}
+	if len(gitSync) > 0 {
+		if err := backupDb.Save(gitSync).Error; err != nil {
+			return nil, err
 		}
 	}
 

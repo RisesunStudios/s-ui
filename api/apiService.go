@@ -6,6 +6,7 @@ import (
 	"time"
 
 	"github.com/alireza0/s-ui/database"
+	"github.com/alireza0/s-ui/database/model"
 	"github.com/alireza0/s-ui/logger"
 	"github.com/alireza0/s-ui/service"
 	"github.com/alireza0/s-ui/util"
@@ -26,6 +27,7 @@ type ApiService struct {
 	service.PanelService
 	service.StatsService
 	service.ServerService
+	service.GitSyncService
 }
 
 func (a *ApiService) LoadData(c *gin.Context) {
@@ -402,4 +404,40 @@ func (a *ApiService) GetCheckOutbound(c *gin.Context) {
 	link := c.Query("link")
 	result := a.ConfigService.CheckOutbound(tag, link)
 	jsonObj(c, result, nil)
+}
+
+func (a *ApiService) GetGitSyncConfig(c *gin.Context) {
+	config, err := a.GitSyncService.GetConfig()
+	if err != nil {
+		jsonMsg(c, "", err)
+		return
+	}
+	config.Token = "***" // Hide token in response
+	jsonObj(c, config, nil)
+}
+
+func (a *ApiService) SaveGitSyncConfig(c *gin.Context) {
+	var config model.GitSync
+	err := c.ShouldBindJSON(&config)
+	if err != nil {
+		jsonMsg(c, "", err)
+		return
+	}
+	err = a.GitSyncService.SaveConfig(&config)
+	jsonMsg(c, "", err)
+}
+
+func (a *ApiService) GitSyncPush(c *gin.Context) {
+	err := a.GitSyncService.PushToGit()
+	jsonMsg(c, "", err)
+}
+
+func (a *ApiService) GitSyncPull(c *gin.Context) {
+	err := a.GitSyncService.PullFromGit()
+	jsonMsg(c, "", err)
+}
+
+func (a *ApiService) GitSyncTest(c *gin.Context) {
+	err := a.GitSyncService.TestConnection()
+	jsonMsg(c, "", err)
 }

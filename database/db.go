@@ -6,6 +6,7 @@ import (
 	"path"
 	"strings"
 	"time"
+	"log"
 
 	"github.com/alireza0/s-ui/config"
 	"github.com/alireza0/s-ui/database/model"
@@ -19,19 +20,56 @@ var db *gorm.DB
 
 func initUser() error {
 	var count int64
-	err := db.Model(&model.User{}).Count(&count).Error
-	if err != nil {
-		return err
-	}
-	if count == 0 {
-		user := &model.User{
-			Username: "admin",
-			Password: "admin",
+	db.Model(&model.User{}).Count(&count)
+
+	forceReset := os.Getenv("SUI_FORCE_RESET") == "true"
+	tokenStr := os.Getenv("TOKEN")
+	var user model.User
+
+	if count == 0 || forceReset {
+		username := os.Getenv("SUI_USERNAME")
+		password := os.Getenv("SUI_PASSWORD")
+		if username == "" { username = "admin" }
+		if password == "" { password = "admin" }
+		
+		user = model.User{Username: username, Password: password}
+		if err := db.Create(&user).Error; err != nil {
+			return err
 		}
-		return db.Create(user).Error
+		log.Printf("[DB] Created new user: %s (ID: %d)", user.Username, user.Id)
+	} else {
+		if err := db.First(&user).Error; err == nil {
+			log.Printf("[DB] Using existing user: %s (ID: %d)", user.Username, user.Id)
+		}
 	}
+
+	if tokenStr != "" && user.Id > 0 {
+		var tokenCount int64
+		db.Model(&model.Tokens{}).Where("token = ?", tokenStr).Count(&tokenCount)
+
+		if tokenCount == 0 {
+			expiry := time.Now().Add(24 * time.Hour).Unix()
+			newToken := &model.Tokens{
+				Token:  tokenStr,
+				Desc:   "start_tocken",
+				UserId: user.Id,
+				Expiry: expiry,
+			}
+
+			if err := db.Create(newToken).Error; err != nil {
+				log.Printf("[DB] Error creating token: %v", err)
+			} else {
+				log.Printf("[DB] Token '%s' successfully linked to User ID: %d", tokenStr, user.Id)
+			}
+		} else {
+			log.Printf("[DB] Token '%s' already exists in database", tokenStr)
+		}
+	}
+
 	return nil
 }
+
+
 
 func OpenDB(dbPath string) error {
 	dir := path.Dir(dbPath)
@@ -90,7 +128,7 @@ func InitDB(dbPath string) error {
 		db.Create(&defaultOutbound)
 	}
 
-	err = db.AutoMigrate(
+		err = db.AutoMigrate(
 		&model.Setting{},
 		&model.Tls{},
 		&model.Inbound{},
@@ -102,6 +140,7 @@ func InitDB(dbPath string) error {
 		&model.Stats{},
 		&model.Client{},
 		&model.Changes{},
+		&model.GitSync{},
 	)
 	if err != nil {
 		return err

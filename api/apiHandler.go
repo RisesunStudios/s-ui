@@ -50,8 +50,16 @@ func (a *APIHandler) postHandler(c *gin.Context) {
 		a.ApiService.LinkConvert(c)
 	case "subConvert":
 		a.ApiService.SubConvert(c)
-	case "importdb":
+		case "importdb":
 		a.ApiService.ImportDb(c)
+	case "gitSyncConfig":
+		a.ApiService.SaveGitSyncConfig(c)
+	case "gitSyncPush":
+		a.ApiService.GitSyncPush(c)
+	case "gitSyncPull":
+		a.ApiService.GitSyncPull(c)
+	case "gitSyncTest":
+		a.ApiService.GitSyncTest(c)
 	case "addToken":
 		a.ApiService.AddToken(c)
 		a.apiv2.ReloadTokens()
@@ -99,8 +107,10 @@ func (a *APIHandler) getHandler(c *gin.Context) {
 		a.ApiService.GetTokens(c)
 	case "singbox-config":
 		a.ApiService.GetSingboxConfig(c)
-	case "checkOutbound":
+		case "checkOutbound":
 		a.ApiService.GetCheckOutbound(c)
+	case "gitSyncConfig":
+		a.ApiService.GetGitSyncConfig(c)
 	default:
 		jsonMsg(c, "failed", common.NewError("unknown action: ", action))
 	}
