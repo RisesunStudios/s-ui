@@ -1,10 +1,10 @@
 # S-UI
 **An Advanced Web Panel • Built on SagerNet/Sing-Box**
 
-![](https://img.shields.io/github/v/release/alireza0/s-ui.svg)
+![](https://img.shields.io/github/v/release/RisesunStudios/s-ui.svg)
 ![S-UI Docker pull](https://img.shields.io/docker/pulls/alireza7/s-ui.svg)
-[![Go Report Card](https://goreportcard.com/badge/github.com/alireza0/s-ui)](https://goreportcard.com/report/github.com/alireza0/s-ui)
-[![Downloads](https://img.shields.io/github/downloads/alireza0/s-ui/total.svg)](https://img.shields.io/github/downloads/alireza0/s-ui/total.svg)
+[![Go Report Card](https://goreportcard.com/badge/github.com/RisesunStudios/s-ui)](https://goreportcard.com/report/github.com/RisesunStudios/s-ui)
+[![Downloads](https://img.shields.io/github/downloads/RisesunStudios/s-ui/total.svg)](https://img.shields.io/github/downloads/RisesunStudios/s-ui/total.svg)
 [![License](https://img.shields.io/badge/license-GPL%20V3-blue.svg?longCache=true)](https://www.gnu.org/licenses/gpl-3.0.en.html)
 
 > **Disclaimer:** This project is only for personal learning and communication, please do not use it for illegal purposes, please do not use it in a production environment
@@ -40,13 +40,13 @@
 
 ## Screenshots
 
-!["Main"](https://github.com/alireza0/s-ui-frontend/raw/main/media/main.png)
+!["Main"](https://github.com/RisesunStudios/s-ui-frontend/raw/main/media/main.png)
 
-[Other UI Screenshots](https://github.com/alireza0/s-ui-frontend/blob/main/screenshots.md)
+[Other UI Screenshots](https://github.com/RisesunStudios/s-ui-frontend/blob/main/screenshots.md)
 
 ## API Documentation
 
-[API-Documentation Wiki](https://github.com/alireza0/s-ui/wiki/API-Documentation)
+[API-Documentation Wiki](https://github.com/RisesunStudios/s-ui/wiki/API-Documentation)
 
 ## Default Installation Information
 - Panel Port: 2095
@@ -63,7 +63,7 @@ bash <(curl -Ls https://raw.githubusercontent.com/alireza0/s-ui/master/install.s
 ```
 
 ### Windows
-1. Download the latest Windows release from [GitHub Releases](https://github.com/alireza0/s-ui/releases/latest)
+1. Download the latest Windows release from [GitHub Releases](https://github.com/RisesunStudios/s-ui/releases/latest)
 2. Extract the ZIP file
 3. Run `install-windows.bat` as Administrator
 4. Follow the installation wizard
@@ -79,8 +79,8 @@ VERSION=1.0.0 && bash <(curl -Ls https://raw.githubusercontent.com/alireza0/s-ui
 ## Manual installation
 
 ### Linux/macOS
-1. Get the latest version of S-UI based on your OS/Architecture from GitHub: [https://github.com/alireza0/s-ui/releases/latest](https://github.com/alireza0/s-ui/releases/latest)
-2. **OPTIONAL** Get the latest version of `s-ui.sh` [https://raw.githubusercontent.com/alireza0/s-ui/master/s-ui.sh](https://raw.githubusercontent.com/alireza0/s-ui/master/s-ui.sh)
+1. Get the latest version of S-UI based on your OS/Architecture from GitHub: [https://github.com/alireza0/s-ui/releases/latest](https://github.com/RisesunStudios/s-ui/releases/latest)
+2. **OPTIONAL** Get the latest version of `s-ui.sh` [https://raw.githubusercontent.com/alireza0/s-ui/master/s-ui.sh](https://raw.githubusercontent.com/RisesunStudios/s-ui/master/s-ui.sh)
 3. **OPTIONAL** Copy `s-ui.sh` to /usr/bin/ and run `chmod +x /usr/bin/s-ui`.
 4. Extract s-ui tar.gz file to a directory of your choice and navigate to the directory where you extracted the tar.gz file.
 5. Copy *.service files to /etc/systemd/system/ and run `systemctl daemon-reload`.
@@ -88,7 +88,7 @@ VERSION=1.0.0 && bash <(curl -Ls https://raw.githubusercontent.com/alireza0/s-ui
 7. Start sing-box service using `systemctl enable sing-box --now`
 
 ### Windows
-1. Get the latest Windows version from GitHub: [https://github.com/alireza0/s-ui/releases/latest](https://github.com/alireza0/s-ui/releases/latest)
+1. Get the latest Windows version from GitHub: [https://github.com/alireza0/s-ui/releases/latest](https://github.com/RisesunStudios/s-ui/releases/latest)
 2. Download the appropriate Windows package (e.g., `s-ui-windows-amd64.zip`)
 3. Extract the ZIP file to a directory of your choice
 4. Run `install-windows.bat` as Administrator
@@ -175,7 +175,7 @@ git submodule update --init --recursive
 
 ### - Frontend
 
-Visit [s-ui-frontend](https://github.com/alireza0/s-ui-frontend) for frontend code
+Visit [s-ui-frontend](https://github.com/RisesunStudios/s-ui-frontend) for frontend code
 
 ### - Backend
 > Please build frontend once before!
@@ -256,4 +256,4 @@ certbot certonly --standalone --register-unsafely-without-email --non-interactiv
 </details>
 
 ## Stargazers over Time
-[![Stargazers over time](https://starchart.cc/alireza0/s-ui.svg)](https://starchart.cc/alireza0/s-ui)
+[![Stargazers over time](https://starchart.cc/RisesunStudios/s-ui.svg)](https://starchart.cc/RisesunStudios/s-ui)
