@@ -3,9 +3,9 @@ package util
 import (
 	"encoding/json"
 
-	"github.com/alireza0/s-ui/util/common"
+	"github.com/RisesunStudios/s-ui/util/common"
 
-	"github.com/alireza0/s-ui/database/model"
+	"github.com/RisesunStudios/s-ui/database/model"
 )
 
 // Fill Inbound's out_json

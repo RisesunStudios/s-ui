@@ -5,10 +5,10 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/alireza0/s-ui/database"
-	"github.com/alireza0/s-ui/logger"
-	"github.com/alireza0/s-ui/service"
-	"github.com/alireza0/s-ui/util"
+	"github.com/RisesunStudios/s-ui/database"
+	"github.com/RisesunStudios/s-ui/logger"
+	"github.com/RisesunStudios/s-ui/service"
+	"github.com/RisesunStudios/s-ui/util"
 
 	"github.com/gin-gonic/gin"
 )

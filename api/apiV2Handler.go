@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"time"
 
-	"github.com/alireza0/s-ui/logger"
-	"github.com/alireza0/s-ui/util/common"
+	"github.com/RisesunStudios/s-ui/logger"
+	"github.com/RisesunStudios/s-ui/util/common"
 
 	"github.com/gin-gonic/gin"
 )

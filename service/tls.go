@@ -3,9 +3,9 @@ package service
 import (
 	"encoding/json"
 
-	"github.com/alireza0/s-ui/database"
-	"github.com/alireza0/s-ui/database/model"
-	"github.com/alireza0/s-ui/util/common"
+	"github.com/RisesunStudios/s-ui/database"
+	"github.com/RisesunStudios/s-ui/database/model"
+	"github.com/RisesunStudios/s-ui/util/common"
 
 	"gorm.io/gorm"
 )

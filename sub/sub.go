@@ -9,11 +9,11 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/alireza0/s-ui/config"
-	"github.com/alireza0/s-ui/logger"
-	"github.com/alireza0/s-ui/middleware"
-	"github.com/alireza0/s-ui/network"
-	"github.com/alireza0/s-ui/service"
+	"github.com/RisesunStudios/s-ui/config"
+	"github.com/RisesunStudios/s-ui/logger"
+	"github.com/RisesunStudios/s-ui/middleware"
+	"github.com/RisesunStudios/s-ui/network"
+	"github.com/RisesunStudios/s-ui/service"
 
 	"github.com/gin-gonic/gin"
 )

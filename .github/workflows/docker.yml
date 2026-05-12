@@ -58,7 +58,7 @@ jobs:
         with:
           images: |
             alireza7/s-ui
-            ghcr.io/alireza0/s-ui
+            ghcr.io/RisesunStudios/s-ui
           tags: |
             type=ref,event=branch
             type=ref,event=tag
@@ -95,7 +95,7 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           tags: |
             alireza7/s-ui
-            ghcr.io/alireza0/s-ui
+            ghcr.io/RisesunStudios/s-ui
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache,mode=max
           outputs: type=image,push-by-digest=true,name-canonical=true,push=true
@@ -141,7 +141,7 @@ jobs:
         with:
           images: |
             alireza7/s-ui
-            ghcr.io/alireza0/s-ui
+            ghcr.io/RisesunStudios/s-ui
           tags: |
             type=ref,event=branch
             type=ref,event=tag
@@ -152,7 +152,7 @@ jobs:
         working-directory: ${{ runner.temp }}/digests
         run: |
           set -e
-          for img in alireza7/s-ui ghcr.io/alireza0/s-ui; do
+          for img in alireza7/s-ui ghcr.io/RisesunStudios/s-ui; do
             TAGS_ARGS=$(echo "$DOCKER_METADATA_OUTPUT_JSON" | jq -cr --arg img "$img" '.tags | map(select(startswith($img))) | map("-t " + .) | join(" ")')
             DIGEST_REFS=$(for f in *; do echo -n "${img}@sha256:$(cat "$f") "; done)
             docker buildx imagetools create $TAGS_ARGS $DIGEST_REFS
