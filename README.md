@@ -227,7 +227,7 @@ To run backend (from root folder of repository):
 <details>
   <summary>Click for details</summary>
 
-### Certbot
+## Certbot
 
 ```bash
 snap install core; snap refresh core
