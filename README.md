@@ -32,16 +32,6 @@
 | Windows  | amd64, 386, arm64 | ✅ Supported |
 | macOS    | amd64, arm64 | 🚧 Experimental |
 
-## Screenshots
-
-!["Main"](https://github.com/RisesunStudios/s-ui-frontend/raw/main/media/main.png)
-
-[Other UI Screenshots](https://github.com/RisesunStudios/s-ui-frontend/blob/main/screenshots.md)
-
-## API Documentation
-
-[API-Documentation Wiki](https://github.com/RisesunStudios/s-ui/wiki/API-Documentation)
-
 ## Default Installation Information
 - Panel Port: 2095
 - Panel Path: /app/
