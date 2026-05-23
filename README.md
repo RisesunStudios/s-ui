@@ -8,6 +8,7 @@
 [![License](https://img.shields.io/badge/license-GPL%20V3-blue.svg?longCache=true)](https://www.gnu.org/licenses/gpl-3.0.en.html)
 
 > **Disclaimer:** This project is established strictly for academic research, education, and technical communication in computer networking and cryptography.The technology presented herein is inherently neutral. The author does not encourage, facilitate, or endorse any activities that violate local laws and regulations.Any commercial use, illegal deployment, or utilization of this project to circumvent legal restrictions is strictly prohibited.Users shall assume full and exclusive legal responsibility for the downloading, compiling, modification, and usage of this codebase. The author shall not be held liable for any direct, indirect, or consequential legal repercussions resulting from any user's misconduct.
+> 
 > **Disclaimer:**【重要声明 / Important Notice】学术研究性质：本项目仅供计算机网络通信、数据加密传输及网络防御技术的学术研究与技术交流使用。技术中立与合规：本项目所涉技术具有完全的技术中立性。作者不鼓励、不协助、亦不赞同任何违反所在国/地区法律法规的行为。禁止非法及商业用途：严禁将本项目代码用于任何非法目的，包括但不限于非法跨境联网、危害网络安全或从事任何形式的商业牟利活动。责任自负：使用者在使用、修改、传播本项目代码时，应当严格遵守当地法律法规。因第三方非法使用或滥用本项目代码所导致的一切法律后果、民事纠纷或行政处罚，均由使用者本人完全承担，作者不承担任何已知或未知的连带法律责任。保留权利：若发现本项目被用于违法违规行为，作者保留随时删除、修改或停止更新本项目的权利。
 
 **If you think this project is helpful to you, you may wish to give a**:star2:
